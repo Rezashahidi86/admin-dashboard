@@ -1,0 +1,413 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@font-face {
+  font-family: "Sans-Regular";
+  src: url(../fonts/Sans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Sans-Medium";
+  src: url(../fonts/Sans-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Sans-DemiBold";
+  src: url(../fonts/Sans-DemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Sans-Bold";
+  src: url(../fonts/Sans-Bold.ttf);
+}
+
+@layer components {
+  .input {
+    @apply rounded-md border duration-150 border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500;
+  }
+}
+@layer utilities {
+  .bg-pattern-light {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.167) 1px, transparent 0);
+    background-size: 40px 40px;
+    background-position: -19px -19px;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center gap-2;
+  }
+
+  .bg-pattern-dark {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.14) 1px,
+      transparent 0
+    );
+    background-size: 40px 40px;
+    background-position: -19px -19px;
+  }
+}
+
+body {
+  @apply bg-gray-100 dark:text-white dark:bg-zinc-900 font-Sans-Medium bg-pattern-light dark:bg-pattern-dark;
+}
+
+aside {
+  @apply dark:bg-zinc-800 fixed bg-white py-5 h-[100vh] w-[80px] flex items-center flex-col justify-between duration-300 ease-in-out top-0;
+  main {
+    @apply w-full h-full mt-10;
+  }
+}
+
+.toggle-sidebar {
+  @apply absolute top-0 -left-4 rounded-full flex max-h-max border-0 border-transparent bottom-0 my-auto w-8 items-center justify-center bg-white dark:bg-zinc-800 dark:text-white dark:hover:text-zinc-300 p-2 text-gray-500 duration-300 ease-in-out hover:text-gray-700;
+}
+
+.website-logo {
+  @apply w-14 rotate-90 duration-300;
+}
+
+.content {
+  @apply my-6 w-[90%] mr-auto ml-10 transition-all duration-300 ease-in-out;
+}
+
+.sidebar.open + .content {
+  @apply xl:w-[76%] lg:w-[73%] md:w-[67%] sm:w-[4%];
+}
+
+.sidebar.open {
+  @apply w-64;
+
+  .website-logo {
+    @apply rotate-0 w-20;
+  }
+
+  .toggle-sidebar {
+    @apply rotate-180;
+  }
+
+  .navlink {
+    @apply w-[90%];
+  }
+}
+
+.side-menu {
+  @apply w-full min-h-full whitespace-nowrap overflow-hidden space-y-1;
+}
+
+.navlink {
+  @apply size-[52px] text-zinc-800 dark:text-zinc-100 mx-auto flex duration-300  overflow-hidden my-2 rounded-md h-12  items-center justify-start;
+}
+
+.navlink.active {
+  @apply dark:bg-zinc-900/50 bg-zinc-300/50;
+}
+
+.navicon {
+  @apply text-2xl dark:text-zinc-300 min-w-[52px] min-h-[52px] flex items-center justify-center;
+}
+
+.breadcrumbs {
+  @apply mb-5;
+}
+
+.breadcrumb {
+  @apply text-lg px-2 relative font-Sans-Bold;
+}
+
+.hero-cards {
+  @apply grid grid-cols-1 child:relative md:grid-cols-3 sm:grid-cols-2 child:w-full child:rounded-md child:p-4 child:dark:bg-zinc-800 mt-14 lg:grid-cols-4 gap-4 child:bg-white child:flex child:items-center child:gap-4;
+}
+
+.ui-border {
+  @apply w-full h-px rounded-full bg-gradient-to-l from-transparent via-white/20 absolute right-0;
+}
+
+.ui-border.top {
+  @apply top-0;
+}
+
+.ui-border.bottom {
+  @apply bottom-0;
+}
+
+.ui-border.emerald {
+  @apply via-emerald-500/50;
+}
+
+.ui-border.indigo {
+  @apply via-indigo-500/50;
+}
+
+.ui-border.red {
+  @apply via-red-500/50;
+}
+
+.ui-border.yellow {
+  @apply via-yellow-500/50;
+}
+
+.hero-card-icon {
+  @apply size-12 flex items-center justify-center text-2xl bg-zinc-100 rounded;
+}
+
+.products-icon {
+  @apply bg-emerald-500/10 text-emerald-500;
+}
+
+.hero-card-title {
+  @apply text-lg font-Sans-Bold dark:text-zinc-300;
+}
+
+.users-icon {
+  @apply bg-indigo-500/10 text-indigo-500;
+}
+.admins-icon {
+  @apply bg-red-500/10 text-red-500;
+}
+.tickets-icon {
+  @apply bg-yellow-500/10 text-yellow-500;
+}
+
+.after-hero {
+  @apply flex gap-10 child:max-h-max mt-14;
+}
+
+.latest-users {
+  @apply min-w-[380px] p-4 relative dark:bg-zinc-800 rounded-md bg-white;
+
+  article {
+    @apply flex items-center gap-4 w-full h-16 dark:bg-zinc-700/20 px-3 my-2 rounded;
+  }
+}
+
+.section-header {
+  @apply flex items-center justify-between border-b dark:border-white/10 pb-3.5;
+}
+
+.table-component {
+  .section-header {
+    @apply border-none;
+  }
+}
+
+.section-title {
+  @apply font-Sans-Bold;
+}
+
+.section-link {
+  @apply text-sm  px-3 py-1.5 rounded bg-indigo-600 duration-150 hover:bg-opacity-90 focus-within:ring-4 text-white flex items-center gap-2;
+
+  i {
+    @apply text-xs;
+  }
+}
+
+.icon-card {
+  @apply size-12 text-2xl flex items-center justify-center rounded  duration-150;
+}
+
+.user-email {
+  @apply text-sm dark:text-zinc-400 text-zinc-500;
+}
+
+.table-component {
+  @apply w-full p-4 dark:bg-zinc-800 rounded-md relative bg-white;
+}
+
+.title-text {
+  @apply text-lg font-Sans-Bold;
+}
+
+.products-data {
+  @apply dark:text-white;
+}
+
+.caption-text {
+  @apply text-sm mt-1 dark:text-white/60 font-Sans-Regular;
+}
+
+.table-head-row {
+  @apply w-full p-3 rounded-md dark:bg-zinc-900 flex child:w-full child:flex child:items-center child:gap-1 child:justify-center justify-between items-center text-xs dark:text-zinc-300 shadow-inner bg-zinc-200 dark:shadow-zinc-700/60;
+}
+
+.tableRow {
+  @apply w-full flex child:line-clamp-1 child:items-center even:bg-zinc-50 even:dark:bg-zinc-900/50 rounded-md child:flex child:justify-center child:w-full h-14 child:gap-2 text-sm;
+
+  .product-manage {
+    @apply child:px-4 text-white child:py-1 child:pt-1.5 child:duration-150 child:rounded;
+
+    button {
+      @apply duration-150 focus-within:ring-4;
+    }
+
+    .remove-btn {
+      @apply bg-red-600 ring-red-500/60 hover:bg-red-500;
+    }
+
+    .edit-btn {
+      @apply bg-amber-500 ring-amber-400/60 hover:bg-amber-400;
+    }
+  }
+}
+
+.sidebar.open + .sideopen-invisible {
+  @apply opacity-0 invisible hidden bg-yellow-500;
+}
+
+.toast {
+  @apply fixed transition-all duration-300 text-sm top-4 overflow-hidden left-4 px-6 py-4 shadow-lg rounded-md bg-zinc-950  text-white flex items-center justify-center gap-3;
+}
+
+.toast.success {
+  .icon {
+    @apply relative flex items-center font-Sans-Bold justify-center text-emerald-500;
+
+    &::before {
+      /* FontFamily: Font Awesome 6 Free */
+      font-family: "Font Awesome 5 Free";
+      content: "\f058";
+    }
+  }
+
+  .process-bar {
+    @apply bg-emerald-500/30;
+  }
+
+  .process {
+    @apply bg-emerald-700;
+  }
+
+  .ui-border {
+    @apply via-emerald-600/60;
+  }
+}
+
+.toast.failed {
+  .icon {
+    @apply relative flex items-center font-Sans-Bold justify-center text-red-500;
+
+    &::before {
+      /* FontFamily: Font Awesome 6 Free */
+      font-family: "Font Awesome 5 Free";
+      content: "\f057";
+    }
+  }
+  .icon-card {
+    @apply shadow-2xl shadow-red-500 bg-red-500/10;
+  }
+
+  .process-bar {
+    @apply bg-red-500/30;
+  }
+
+  .process {
+    @apply bg-red-700;
+  }
+
+  .ui-border {
+    @apply via-red-600/60;
+  }
+}
+
+.process-bar {
+  @apply absolute h-1 duration-300 transition-all bg-white/15 w-full bottom-0 right-0;
+
+  .process {
+    @apply absolute right-0 w-3/5 h-full bg-white duration-300 transition-all;
+  }
+}
+
+.toast.hidden {
+  @apply -translate-x-80;
+}
+
+.modal-screen {
+  @apply w-full h-screen flex duration-300 items-center justify-center fixed top-0 right-0 bg-zinc-600/20 backdrop-blur-sm;
+
+  .modal {
+    @apply bg-white dark:bg-zinc-900 relative p-4 w-[400px] rounded-md shadow-lg;
+
+    .modal-header {
+      @apply flex items-center justify-between;
+
+      button {
+        @apply size-8 duration-150 relative hover:bg-red-600/15 focus-within:ring-4 ring-red-500/30 rounded-md flex items-center justify-center bg-red-600/10 text-red-600;
+      }
+    }
+
+    .modal-content {
+      @apply py-4 border-y dark:border-white/10 my-3 space-y-2;
+
+      input {
+        @apply bg-zinc-100 dark:bg-zinc-800/40 border border-zinc-300 dark:border-zinc-700/80 rounded-md py-2.5 px-3 outline-none focus:ring-2 ring-emerald-500/50 transition-all duration-150 w-full text-sm;
+      }
+    }
+
+    .modal-footer {
+      @apply flex items-center justify-end gap-2;
+
+      button {
+        @apply px-4 py-2 focus-within:ring-4 rounded-md text-sm font-medium duration-150;
+      }
+
+      .cancel {
+        @apply bg-red-700/15 hover:bg-red-700/20 ring-red-600/30 text-red-600;
+      }
+
+      .submit {
+        @apply bg-emerald-700 hover:bg-emerald-700/90 ring-emerald-500/30 text-white;
+      }
+    }
+  }
+}
+
+.modal-screen.hidden {
+  @apply opacity-0 invisible;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.copyright {
+  @apply fixed right-0 left-0 mx-auto px-6 text-center max-w-max text-xs text-zinc-500/80 bottom-4;
+}
+
+.remove-text {
+  @apply text-center py-4 text-sm text-red-600 bg-red-600/10 rounded relative select-none;
+}
+
+.backslash {
+  @apply text-xs dark:text-zinc-500;
+}
+
+.table-footer {
+  @apply py-2 mt-3 w-full flex items-center justify-center  rounded-md;
+}
+
+.pagination {
+  @apply flex items-center justify-center dark:text-zinc-200 dark:child:border-white/5 dark:child:bg-zinc-900/5  child:size-8 text-sm font-bold text-zinc-600 child:duration-150 child-hover:bg-zinc-100 select-none child:cursor-pointer gap-1.5 child:flex-center  child:rounded child:border;
+
+  .page {
+    @apply focus-within:ring-4 dark:ring-indigo-800/50 outline-none;
+  }
+
+  .active {
+    @apply bg-sky-500 text-white shadow-md shadow-sky-400/50 dark:bg-indigo-600 dark:border-indigo-600/30 dark:shadow-indigo-500/30 border-sky-500/30 hover:bg-sky-400;
+  }
+  direction: ltr;
+}
+
+.theme-button {
+  @apply fixed bottom-4 left-4 size-10 border bg-white shadow-inner shadow-zinc-700/40 dark:text-zinc-200 text-zinc-700 dark:border-white/10 duration-150 focus-within:ring-4 dark:ring-indigo-800/50 hover:dark:bg-zinc-900 text-xl flex-center rounded-full dark:bg-zinc-800;
+}

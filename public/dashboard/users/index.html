@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مدیریت کاربران</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body onload="getDataFromLocalStorage()">
+    <!-- main content -->
+    <main>
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <header>
+          <a href="/index.html">
+            <img
+              src="../../images/logo.png"
+              class="website-logo"
+              alt=""
+            />
+          </a>
+        </header>
+        <main class="side-menu">
+          <ul class="side-container">
+            <li>
+              <a href="../../../index.html" class="navlink">
+                <span class="navicon"><i class="fa-solid fa-house"></i></span>
+                <span class="title">داشبورد</span>
+              </a>
+            </li>
+            <!-- products -->
+            <li>
+              <a href="./../products/" class="navlink">
+                <span class="navicon"><i class="fa-solid fa-box"></i></span>
+                <span class="title">محصولات</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="navlink active">
+                <span class="navicon"><i class="fa-solid fa-users"></i></span>
+                <span class="title">کاربران</span>
+              </a>
+            </li>
+          </ul>
+        </main>
+        <footer></footer>
+        <button class="toggle-sidebar">
+          <!-- Arrow Right -->
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+      </aside>
+
+      <!-- Content -->
+      <section class="content">
+        <!-- breadcrumbs -->
+        <div class="breadcrumbs">
+          <a href="/" class="breadcrumb">صفحه اصلی</a>
+          <span class="backslack"> / </span>
+          <a href="/dashboard/users/"> کاربران </a>
+        </div>
+
+        <!-- Table -->
+        <div class="table-component">
+          <i class="ui-border emerald top"></i>
+          <!-- Table Header -->
+          <div class="section-header">
+            <div>
+              <p class="title-text">لیست کاربران</p>
+              <p class="users-count-text caption-text">
+                <span class="users-data">0</span>
+                <span>کاربر ثبت نام کرده اند.</span>
+              </p>
+            </div>
+            <a href="#" id="create-user" class="section-link">
+              <span>
+                <span> ایجاد کاربر </span>
+                <!-- Plus icon -->
+                <i class="fa-solid fa-plus"></i>
+              </span>
+            </a>
+          </div>
+
+          <!-- Table Head row -->
+          <div class="table-head-row">
+            <p>نام و نام خانوادگی</p>
+            <p>نام کاربری</p>
+            <p>آدرس ایمیل</p>
+            <p>گذرواژه</p>
+            <p>مدیریت</p>
+          </div>
+
+          <!-- Table body (content) -->
+          <div class="table-body">
+            <!-- data loaded from js -->
+          </div>
+          <!-- Table Footer  -->
+          <div class="table-footer">
+            <!-- Pagination -->
+            <div class="pagination">
+              <!-- data loded from js -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="toast success hidden">
+      <i class="ui-border top-0"></i>
+      <span class="icon-card">
+        <span class="icon"></span>
+      </span>
+      <span class="toast-content"> محصول با موفقیت ویرایش شد </span>
+
+      <div class="process-bar">
+        <div class="process"></div>
+      </div>
+    </div>
+
+    <div class="modal-screen hidden">
+      <!-- data loaded from js -->
+    </div>
+
+    <button class="theme-button">
+      <!-- Moon icon -->
+      <!-- <i class="fas fa-moon"></i> -->
+      <!-- Sun icon -->
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- user Edit Modal -->
+    <!--     
+                    <header class="modal-header">
+          <h3>ویرایش اطلاعات کاربر</h3>
+          <button class="close-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </header>
+        <main class="modal-content">
+          <input
+            type="text"
+            class="modal-input"
+            placeholder="نام و نام خانوادگی را وارد نمائید ..."
+            id="user-fullName"
+          />
+          <input
+            type="number"
+            class="modal-input"
+            id="user-username"
+            placeholder="نام کاربری را وارد نمائید ..."
+          />
+          <input
+            type="email"
+            class="modal-input"
+            id="user-email"
+            placeholder="ایمیل را وارد نمائید ..."
+          />
+          <input
+          type="email"
+          class="modal-input"
+          id="user-password"
+          placeholder="رمز عبور را وارد نمائید ..."
+        />
+        </main>
+        <footer class="modal-footer">
+          <button class="cancel">انصراف</button>
+          <button class="submit">تائید</button>
+        </footer>
+     -->
+
+    <!-- user create modal -->
+    <!-- 
+                <header class="modal-header">
+          <h3>ایجاد کاربر جدید</h3>
+          <button class="close-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </header>
+        <main class="modal-content">
+          <input
+            type="text"
+            class="modal-input"
+            placeholder="نام و نام خانوادگی را وارد نمائید ..."
+            id="user-fullName"
+          />
+          <input
+            type="number"
+            class="modal-input"
+            id="user-username"
+            placeholder="نام کاربری را وارد نمائید ..."
+          />
+          <input
+            type="email"
+            class="modal-input"
+            id="user-email"
+            placeholder="ایمیل را وارد نمائید ..."
+          />
+          <input
+          type="email"
+          class="modal-input"
+          id="user-password"
+          placeholder="رمز عبور را وارد نمائید ..."
+        />
+        </main>
+        <footer class="modal-footer">
+          <button class="cancel">انصراف</button>
+          <button class="submit">تائید</button>
+        </footer>
+     -->
+
+    <!-- Remove user Modal  -->
+    <!-- 
+        <i class="ui-border top red"></i>
+        <i class="ui-border bottom red"></i>
+        <header class="modal-header">
+          <h3>اخراج کاربر</h3>
+          <button class="close-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </header>
+        <main class="modal-content">
+          <p class="remove-text">آیا از اخراج(بن) کردن این کاربر اطمینان دارید؟</p>
+        </main>
+        <footer class="modal-footer">
+          <button class="cancel">انصراف</button>
+          <button class="submit">تائید</button>
+        </footer>
+           -->
+    <script src="../../js/users.js"></script>
+  </body>
+</html>

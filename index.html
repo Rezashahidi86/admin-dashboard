@@ -1,0 +1,240 @@
+<!-- 
+  1: use ".hidden" class to toggle ".TOAST" and ".MODAL-SCREEN"
+
+  2: use insertAdjacentHTML method to change .modal content
+-->
+
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>صفحه اصلی</title>
+    <link rel="stylesheet" href="public/css/styles.css" />
+    <!-- Fontawesome CDNJS 6.6.0 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body onload="getDataFromLocalStorage()">
+    <header></header>
+
+    <main>
+      <aside class="sidebar">
+        <header>
+          <a href="/">
+            <img src="./public/images/logo.png" class="website-logo" alt="" />
+          </a>
+        </header>
+        <main class="side-menu">
+          <ul class="side-container">
+            <li>
+              <a href="#" class="navlink active">
+                <span class="navicon"><i class="fa-solid fa-house"></i></span>
+                <span class="title">داشبورد</span>
+              </a>
+            </li>
+            <!-- Products -->
+            <li>
+              <a href="public/dashboard/products/" class="navlink">
+                <span class="navicon"><i class="fa-solid fa-box"></i></span>
+                <span class="title">محصولات</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="public/dashboard/users/index.html" class="navlink">
+                <span class="navicon"><i class="fa-solid fa-users"></i></span>
+                <span class="title">کاربران</span>
+              </a>
+            </li>
+          </ul>
+        </main>
+        <footer></footer>
+        <button class="toggle-sidebar">
+          <!-- Arrow Right -->
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+      </aside>
+      <section class="content">
+        <div class="breadcrumbs">
+          <a href="./index.html" class="breadcrumb">داشبورد</a>
+        </div>
+
+        <section class="hero-cards">
+          <article>
+            <i class="ui-border emerald top"></i>
+            <i class="ui-border emerald bottom"></i>
+            <!-- Products icon -->
+            <span class="hero-card-icon products-icon">
+              <i class="fa-solid fa-box"></i>
+            </span>
+            <div>
+              <p class="hero-card-title">محصولات</p>
+              <p class="hero-card-data products-data">0</p>
+            </div>
+          </article>
+          <article>
+            <i class="ui-border indigo top"></i>
+            <i class="ui-border indigo bottom"></i>
+            <!-- Users icon -->
+            <span class="hero-card-icon users-icon">
+              <i class="fa-solid fa-users"></i>
+            </span>
+            <div>
+              <p class="hero-card-title">کاربران</p>
+              <p class="hero-card-data users-data">0</p>
+            </div>
+          </article>
+          <article>
+            <i class="ui-border red top"></i>
+            <i class="ui-border red bottom"></i>
+            <!-- Admins icon -->
+            <span class="hero-card-icon admins-icon">
+              <i class="fa-solid fa-user-tie"></i>
+            </span>
+            <div>
+              <p class="hero-card-title">مدیران</p>
+              <p class="hero-card-data moderators-data">2</p>
+            </div>
+          </article>
+          <article>
+            <i class="ui-border yellow top"></i>
+            <i class="ui-border yellow bottom"></i>
+            <!-- Tickets icon -->
+            <span class="hero-card-icon tickets-icon">
+              <i class="fa-solid fa-ticket"></i>
+            </span>
+            <div>
+              <p class="hero-card-title">تیکت‌ها</p>
+              <p class="hero-card-data ticket-data">2</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="after-hero">
+          <section class="latest-users">
+            <i class="ui-border top indigo"></i>
+            <div class="section-header">
+              <p class="section-title">جدیدترین کاربران</p>
+              <!-- Redirect to /dashboard/users page -->
+              <a href="public/dashboard/users/index.html" class="section-link">
+                بیشتر
+                <!-- Arrow(Chervon Left) -->
+                <i class="fa-solid fa-chevron-left"></i>
+              </a>
+            </div>
+            <!-- data loaded from js -->
+          </section>
+          <section class="table-component">
+            <i class="ui-border emerald top"></i>
+            <div class="section-header">
+              <div>
+                <p class="title-text">لیست محصولات</p>
+                <p class="products-count-text caption-text">
+                  <span class="products-data">0</span>
+                  <span> محصول در وبسایت شما وجود دارد </span>
+                </p>
+              </div>
+              <a href="public/dashboard/products/index.html" class="section-link">
+                <span>
+                  محصولات
+                  <i class="fa-solid fa-chevron-left"></i>
+                </span>
+              </a>
+            </div>
+
+            <div class="table-head-row">
+              <p>عنوان محصول</p>
+              <p>قیمت محصول</p>
+              <p>عنوان کوتاه</p>
+              <p>مدیریت</p>
+            </div>
+
+            <div class="table-body">
+              <!-- data loaded from js -->
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <div class="toast failed hidden">
+      <i class="ui-border top-0"></i>
+      <span class="icon-card">
+        <span class="icon"></span>
+      </span>
+      <span class="toast-content"> محصول با موفقیت ویرایش شد </span>
+
+      <div class="process-bar">
+        <div class="process"></div>
+      </div>
+    </div>
+
+    <div class="modal-screen hidden">
+      <div class="modal">
+        <i class="ui-border top red"></i>
+        <i class="ui-border bottom red"></i>
+        <header class="modal-header">
+          <h3>حذف محصول</h3>
+          <button class="close-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </header>
+        <main class="modal-content">
+          <p class="remove-text">آیا از حذف این محصول اطمینان دارید؟</p>
+        </main>
+        <footer class="modal-footer">
+          <button class="cancel">انصراف</button>
+          <button class="submit">تائید</button>
+        </footer>
+      </div>
+    </div>
+
+    <button class="theme-button">
+      <!-- Moon icon -->
+      <!-- <i class="fas fa-moon"></i> -->
+      <!-- Sun icon -->
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Modal Edit Product:
+
+      <header class="modal-header">
+          <h3>ویرایش محصول</h3>
+          <button class="close-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </header>
+        <main class="modal-content">
+          <input
+            type="text"
+            class="modal-input"
+            placeholder="عنوان محصول را وارد نمائید ..."
+            id="product-title"
+          />
+          <input
+            type="number"
+            class="modal-input"
+            placeholder="قیمت محصول را وارد نمائید ..."
+            id="product-price"
+          />
+          <input
+            type="number"
+            class="modal-input"
+            placeholder="عنوان کوتاه محصول را وارد نمائید ..."
+            id="product-shortName"
+          />
+        </main>
+        <footer class="modal-footer">
+          <button class="cancel">انصراف</button>
+          <button class="submit">تائید</button>
+        </footer>
+     
+      -->
+    <script src="public/js/dashborad.js"></script>
+  </body>
+</html>
