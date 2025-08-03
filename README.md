@@ -1,6 +1,6 @@
 # Admin Dashboard
 
-A responsive **Admin Dashboard** built with **HTML**, **CSS**, and **JavaScript**.  
+A **Admin Dashboard** built with **HTML**, **CSS**, and **JavaScript**.  
 This dashboard allows administrators to manage products, users, and plans with a clean and modern UI.  
 It supports **light** and **dark** themes, stores preferences in **Local Storage**, and works smoothly on different screen sizes.
 
@@ -11,12 +11,12 @@ It supports **light** and **dark** themes, stores preferences in **Local Storage
 - 📋 **Plan Control** — Control and manage subscription plans.
 - 🌓 **Theme Switcher** — Toggle between **Dark** and **Light** mode.
 - 💾 **Local Storage** — Saves user preferences (e.g., selected theme).
-- 📱 **Responsive Design** — Fully optimized for desktop, tablet, and mobile.
+
 
 ## Technologies Used
 
 - **HTML5** — Structure and layout of the dashboard.
-- **CSS3** — Styling, animations, and responsive design.
+- **CSS3** — Styling, animations.
 - **JavaScript (ES6)** — Interactive features, theme switching, and local storage handling.
 
 ## How to Use
